@@ -1,7 +1,7 @@
 package com.pluralsight;
 
 
-public class House extends Asset{
+public class House extends Asset {
     private final String address;
     private final int condition;
     private final int squareFoot;
@@ -21,11 +21,11 @@ public class House extends Asset{
     }
 
     public int getCondition() {
-        if(condition<=4&&condition>=1){
+        if (condition <= 4 && condition >= 1) {
             return condition;
-        }else{
-             message();
-             return 0;
+        } else {
+            message();
+            return 0;
         }
     }
 
@@ -53,15 +53,17 @@ public class House extends Asset{
 
         return houseValue + lotValue;
     }
-    public void message(){
+
+    public void message() {
         System.out.println("Invalid input");
     }
+
     @Override
     public String toString() {
         return "House: " +
                 "address = " + getAddress() +
                 ", condition = " + getCondition() +
-                ", squareFoot = " +getSquareFoot() +
+                ", squareFoot = " + getSquareFoot() +
                 ", lotSize = " + getLotSize();
     }
 }
