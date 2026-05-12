@@ -39,13 +39,13 @@ public class House extends Asset {
 
     @Override
     public double getValue() {
-        double pricePerSqFt;
+        double pricePerSqFt = 0;
         switch (getCondition()) {
             case 4 -> pricePerSqFt = 180.00;
             case 3 -> pricePerSqFt = 130.00;
             case 2 -> pricePerSqFt = 90.00;
             case 1 -> pricePerSqFt = 80.00;
-            default -> pricePerSqFt = 0;
+            default -> message();
         }
         double houseValue = getSquareFoot() * pricePerSqFt;
 
