@@ -39,13 +39,19 @@ public class House extends Asset{
 
     @Override
     public double getValue() {
-        double value = super.getValue();
-
-        if (value > 1500000) {
-            return value;
-        } else {
-            return getOriginalCost(); // or return value depending on your requirement
+        double pricePerSqFt;
+        switch (getCondition()) {
+            case 4 -> pricePerSqFt = 180.00;
+            case 3 -> pricePerSqFt = 130.00;
+            case 2 -> pricePerSqFt = 90.00;
+            case 1 -> pricePerSqFt = 80.00;
+            default -> pricePerSqFt = 0;
         }
+        double houseValue = getSquareFoot() * pricePerSqFt;
+
+        double lotValue = getLotSize() * 0.25;
+
+        return houseValue + lotValue;
     }
     public void message(){
         System.out.println("Invalid input");

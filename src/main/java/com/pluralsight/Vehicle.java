@@ -26,7 +26,35 @@ public class Vehicle extends Asset{
 
     @Override
     public double getValue() {
-        return super.getValue();
+
+        double baseValue = super.getValue();
+        int currentYear = java.time.Year.now().getValue();
+        int age = currentYear - getYear();
+
+        double value = baseValue;
+
+        if (age <= 3) {
+            value -= baseValue * (0.03 * age);
+        }
+        else if (age <= 6) {
+            value -= baseValue * (0.06 * age);
+        }
+        else if (age <= 10) {
+            value -= baseValue * (0.08 * age);
+        }
+        else {
+            value = 1000.00;
+        }
+
+        boolean isReliableBrand =
+                getMakeModel().toLowerCase().contains("honda") ||
+                        getMakeModel().toLowerCase().contains("toyota");
+
+        if (getOdometer() > 100000 && !isReliableBrand) {
+            value *= 0.75;
+        }
+
+        return value;
     }
 
     @Override
