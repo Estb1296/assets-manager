@@ -31,7 +31,7 @@ public class App {
                 "Porsche 911 Cabriolet",
                 2025,
                 4200));
-        assets.add(new Asset("BeachHouse", "01-03-2026",300000));
+      assets.add(new Cash(30000, "01-03-2026","Paycheck"));
         for (Asset asset : assets) {
             System.out.println(asset);
         }
